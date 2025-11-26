@@ -22,7 +22,6 @@ Features:
 - JSON/CSV reporting
 
 Inspired by: https://github.com/GONZOsint/gitrecon
-compiled & written by SOS
 """
 
 import requests
@@ -505,6 +504,10 @@ class Thumper:
     def save_html(self, results: ReconResults, filepath: str):
         """Generate HTML report"""
         p = results.profile
+        if not p:
+            self.log(f"Skipping HTML report - no profile data", "warn")
+            return
+        
         sh = results.shai_hulud_findings
         score = results.exposure_score
         risk = "CRITICAL" if score >= 50 else "HIGH" if score >= 30 else "MEDIUM" if score >= 15 else "LOW"
@@ -866,7 +869,7 @@ Examples:
             thumper.save_json(results, f"{args.output}/{username}.json")
         if args.csv:
             thumper.save_csv(results, f"{args.output}/{username}.csv")
-        if args.html:
+        if args.html and results.profile:
             thumper.save_html(results, f"{args.output}/{username}.html")
     
     # Generate batch summary report
