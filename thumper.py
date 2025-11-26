@@ -10,7 +10,7 @@
 Thumper - Shai-Hulud Detection + OSINT Recon Tool
 "What senses do we lack that we cannot see or hear another world all around us?"
 
-Attracts the worm. Finds the compromise.
+Attracts the worm. Finds the compromise. -SOS
 
 Features:
 - Full GitHub profile enumeration
