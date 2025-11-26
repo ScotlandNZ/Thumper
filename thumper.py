@@ -22,6 +22,7 @@ Features:
 - JSON/CSV reporting
 
 Inspired by: https://github.com/GONZOsint/gitrecon
+compiled & written by SOS
 """
 
 import requests
