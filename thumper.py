@@ -101,9 +101,20 @@ class Thumper:
             if resp.status_code == 200:
                 return resp.json()
             elif resp.status_code == 404:
+                self.log(f"Not found: {endpoint}", "warn")
+                return None
+            elif resp.status_code == 403:
+                # Rate limit or forbidden
+                remaining = resp.headers.get('X-RateLimit-Remaining', '?')
+                reset = resp.headers.get('X-RateLimit-Reset', '?')
+                self.log(f"Rate limited or forbidden: {endpoint} (remaining: {remaining}, reset: {reset})", "error")
+                self.log("Use -t/--token to increase rate limits", "warn")
+                return None
+            elif resp.status_code == 401:
+                self.log(f"Authentication failed - check your token", "error")
                 return None
             else:
-                self.log(f"API error {resp.status_code}: {endpoint}", "warn")
+                self.log(f"API error {resp.status_code}: {endpoint} - {resp.text[:100]}", "warn")
                 return None
         except Exception as e:
             self.log(f"Request failed: {e}", "error")
