@@ -1,6 +1,6 @@
 # 🪱 Thumper
 
-**Shai-Hulud Detection + OSINT Recon Tool**
+**Shai-Hulud Detection + OSINT Recon Tool (Inspired by gitrecon by GONZOsint)**
 
 *"What senses do we lack that we cannot see or hear another world all around us?"*
 
