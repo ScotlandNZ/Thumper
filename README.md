@@ -83,7 +83,7 @@ python3 thumper.py user1 user2 user3
 Using a token increases rate limits from 60 to 5,000 requests/hour.
 
 ```bash
-python3 thumper.py asyncapi -t ghp_your_token_here
+python3 thumper.py <github_user_id> -t ghp_your_token_here
 ```
 
 Generate a token at: https://github.com/settings/tokens
@@ -111,7 +111,7 @@ Create a text file with usernames (one per line):
 # team-github-users.txt
 # Lines starting with # are ignored
 
-asyncapi
+<github_user_id>
 zapier
 ensdomains
 ```
@@ -126,22 +126,22 @@ python3 thumper.py -f team-github-users.txt -t ghp_token
 
 ```bash
 # JSON output
-python3 thumper.py asyncapi --json -t ghp_token
+python3 thumper.py <github_user_id> --json -t ghp_token
 
 # CSV output
-python3 thumper.py asyncapi --csv -t ghp_token
+python3 thumper.py <github_user_id> --csv -t ghp_token
 
 # HTML report
-python3 thumper.py asyncapi --html -t ghp_token
+python3 thumper.py <github_user_id> --html -t ghp_token
 
 # All formats
-python3 thumper.py asyncapi --json --csv --html -t ghp_token
+python3 thumper.py <github_user_id> --json --csv --html -t ghp_token
 
 # Custom output directory
-python3 thumper.py asyncapi -o ./reports/ --html -t ghp_token
+python3 thumper.py <github_user_id> -o ./reports/ --html -t ghp_token
 
 # Verbose output
-python3 thumper.py asyncapi -v -t ghp_token
+python3 thumper.py <github_user_id> -v -t ghp_token
 ```
 
 ### Full Example
@@ -192,7 +192,7 @@ Thumper checks if the scanned user/org maintains any of these known compromised 
 
 | Package | Affected Versions |
 |---------|-------------------|
-| @asyncapi/cli | Multiple |
+| @<github_user_id>/cli | Multiple |
 | @zapier/zapier-sdk | 0.15.5 - 0.15.7 |
 | zapier-platform-core | 18.0.2 - 18.0.4 |
 | zapier-platform-cli | 18.0.2 - 18.0.4 |
@@ -274,12 +274,12 @@ Wave 1: September 14-20, 2025 | Wave 2: November 21-26, 2025
 [*] Scanning 1 user(s)...
 
 ============================================================
-THUMPER RECON: asyncapi
+THUMPER RECON: <github_user_id>
 ============================================================
 
 [+] Found 48 repositories
 [*] Checking for known compromised npm packages
-[!!!] COMPROMISED PACKAGE: cli (matches: @asyncapi/cli)
+[!!!] COMPROMISED PACKAGE: cli (matches: @<github_user_id>/cli)
 
 ============================================================
 SHAI-HULUD DETECTION
@@ -299,7 +299,7 @@ SHAI-HULUD DETECTION
              ~~~~   The Sleeper Has Awakened!
 
   [!!!] KNOWN COMPROMISED PACKAGES: 1
-    - cli (matches: @asyncapi/cli)
+    - cli (matches: @<github_user_id>/cli)
 
 ============================================================
 EXPOSURE ASSESSMENT
