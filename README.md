@@ -413,8 +413,3 @@ For comprehensive leaked credential checks, consider also using dedicated threat
 
 This tool is intended for security professionals to assess their own accounts and those they have authorisation to scan. Always obtain proper authorisation before scanning GitHub accounts. Use responsibly.
 
----
-
-## License
-
-MIT License
